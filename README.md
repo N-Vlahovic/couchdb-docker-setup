@@ -52,12 +52,23 @@ Note that the above paths are relative to the project directory, e.g
 
 To build the setup (i.e. run the servers) simply execute the command
 
+    make build
+
+or
+
     docker-compose up --build -d
+    # Finish db setups with the shell script
+    docker exec -it test-couchdb0 ./db_setup.sh
+  	docker exec -it test-couchdb1 ./db_setup.sh  
 
 
 ### Stop
 
 To stop the servers execute
+
+    make stop
+
+or
 
     docker-compose stop
 
@@ -66,6 +77,10 @@ To stop the servers execute
 **READ CAREFULLY BEFORE EXECUTING REMOVE COMMANDS**
 
 To purge (stop and remove all) first execute
+
+    make purge
+
+or
 
     docker-compose down -v
 
