@@ -1,0 +1,50 @@
+version: "3.8"
+
+# This help to avoid routing conflict within virtual machines:
+networks:
+  default:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/24
+
+
+services:
+
+  couchdb0:
+    container_name: "test-couchdb0"
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./couchdb.Dockerfile
+    expose:
+      - ${COUCHDB_PORT}
+    ports:
+      - "${COUCHDB0_PORT_OUTSIDE}:${COUCHDB_PORT}"
+    env_file:
+      - .env
+    environment:
+      - COUCHDB_USER=${COUCHDB_USER}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+    volumes:
+      - ./local.ini:/opt/couchdb/etc/local.ini
+      - ./data/db0:/opt/couchdb/data
+
+  couchdb1:
+    container_name: "test-couchdb1"
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./couchdb.Dockerfile
+    expose:
+      - ${COUCHDB_PORT}
+    ports:
+      - "${COUCHDB1_PORT_OUTSIDE}:${COUCHDB_PORT}"
+    env_file:
+      - .env
+    environment:
+      - COUCHDB_USER=${COUCHDB_USER}
+      - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
+    volumes:
+      - ./local.ini:/opt/couchdb/etc/local.ini
+      - ./data/db1:/opt/couchdb/data
