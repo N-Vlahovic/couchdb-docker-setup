@@ -24,6 +24,7 @@ services:
     env_file:
       - .env
     environment:
+      - COUCHDB_HOST=couchdb0
       - COUCHDB_USER=${COUCHDB_USER}
       - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
     volumes:
@@ -43,6 +44,7 @@ services:
     env_file:
       - .env
     environment:
+      - COUCHDB_HOST=couchdb1
       - COUCHDB_USER=${COUCHDB_USER}
       - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
     volumes:
