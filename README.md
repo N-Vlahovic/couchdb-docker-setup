@@ -74,8 +74,8 @@ folder `data` in the project directory.
 
 **BEWARE:**
 
-  - Make sure to remove the proper folder - Executing a command of the form
-  `rm -rf data` as it removes folders relative to the path from which the
-  command has been executed. A safer approach would be
+  - Make sure to remove the proper folder! Executing a command of the form
+  `rm -rf data` can be dangerous as it removes folders relative to the path
+  from which the command has been executed. A safer approach would be
   `rm -rf ~/path/to/couchdb-docker-setup/data`.
   - Stating the obvious, all data stored in the database servers will be lost.
