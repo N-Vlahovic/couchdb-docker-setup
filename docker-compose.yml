@@ -18,17 +18,16 @@ services:
       context: .
       dockerfile: ./couchdb.Dockerfile
     expose:
-      - ${COUCHDB_PORT}
+      - 59840
     ports:
-      - "${COUCHDB0_PORT_OUTSIDE}:${COUCHDB_PORT}"
-    env_file:
-      - .env
+      - "59840:59840"
     environment:
       - COUCHDB_HOST=couchdb0
+      - COUCHDB_PORT=59840
       - COUCHDB_USER=${COUCHDB_USER}
       - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
     volumes:
-      - ./local.ini:/opt/couchdb/etc/local.ini
+      - ./db0.local.ini:/opt/couchdb/etc/local.ini
       - ./data/db0:/opt/couchdb/data
 
   couchdb1:
@@ -38,15 +37,16 @@ services:
       context: .
       dockerfile: ./couchdb.Dockerfile
     expose:
-      - ${COUCHDB_PORT}
+      - 59841
     ports:
-      - "${COUCHDB1_PORT_OUTSIDE}:${COUCHDB_PORT}"
+      - "59841:59841"
     env_file:
       - .env
     environment:
       - COUCHDB_HOST=couchdb1
+      - COUCHDB_PORT=59841
       - COUCHDB_USER=${COUCHDB_USER}
       - COUCHDB_PASSWORD=${COUCHDB_PASSWORD}
     volumes:
-      - ./local.ini:/opt/couchdb/etc/local.ini
+      - ./db1.local.ini:/opt/couchdb/etc/local.ini
       - ./data/db1:/opt/couchdb/data

@@ -24,14 +24,11 @@ The file ought to have the following structure
 ```
 COUCHDB_USER=  # The admin username
 COUCHDB_PASSWORD=  # The admin password
-COUCHDB_PORT=  # The server's docker-internal port - usually 5984
-COUCHDB0_PORT_OUTSIDE=  # The first server's outside port - e.g. 59840
-COUCHDB1_PORT_OUTSIDE=  # The second server's outside port - e.g. 59841
 ```
 
 Note that both servers have identical admin logins and internal port.
 This can easily be changed by creating variables of the form `{VAR}_{NUM}` where
-`VAR` denotes either one of `COUCHDB_USER COUCHDB_PASSWORD COUCHDB_PORT` and
+`VAR` denotes either one of `COUCHDB_USER COUCHDB_PASSWORD` and
 `NUM` either one of `0 1`. Then substitute the variables in the
 `docker-compose.yml` file accordingly.
 
