@@ -6,7 +6,7 @@ Note that this is *not* a clustered setup - just two servers alongside each othe
 
 The motivation behind this setup is to test and experiment with
 [replications](https://docs.couchdb.org/en/main/api/server/common.html#replicate).
-Further, testing my [Python CouchDB wrapper](https://github.com/n-vlahovic/relax-python)
+Further, testing my [Python CouchDB wrapper](https://github.com/n-vlahovic/couchdb3)
 is another reason for creating this small setup.
 
 
